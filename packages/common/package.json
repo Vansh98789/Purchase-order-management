@@ -1,0 +1,24 @@
+{
+  "name": "common",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.4.2",
+    "@prisma/extension-accelerate": "^3.0.1",
+    "prisma": "^7.4.2"
+  },
+  "exports": {
+  "./db": {
+    "bun": "./db.ts",
+    "import": "./db.ts",
+    "default": "./db.ts"
+  }
+}
+}

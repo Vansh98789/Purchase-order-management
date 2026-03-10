@@ -1,5 +1,5 @@
 import express from "express";
-
+import {prisma} from "../../packages/common/db"
 const app=express();
 
 
