@@ -20,5 +20,11 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@types/dotenv": "^8.2.3",
+    "@types/node": "^25.4.0",
+    "dotenv": "^17.3.1",
+    "prisma": "^7.4.2"
+  }
 }
