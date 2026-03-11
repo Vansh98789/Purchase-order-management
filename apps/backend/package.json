@@ -10,8 +10,16 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/body-parser": "^1.19.6",
+    "@types/cookie-parser": "^1.4.10",
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.2",
+    "common": "*",
+    "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
-    "common":"*"
+    "jsonwebtoken": "^9.0.3"
   }
 }
