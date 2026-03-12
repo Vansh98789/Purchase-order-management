@@ -4,6 +4,7 @@ import DashBoard from "./features/DashBoard"
 import CreateProduct from "./features/CreateProducts"
 import MyProduct from "./features/Products"
 import Order from "./features/Order"
+import ProductMain from "./features/ProductMain"
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       
           <Routes>
             <Route path="/" element={<LandingPage/>}/>
+            <Route path="/Shop-Now" element={<ProductMain/>}/>
             <Route path="/dashboard" element={<DashBoard/>}>
               <Route index element={<Navigate to="myProduct" replace />} />
               <Route path="createProduct" element={<CreateProduct/>}/>

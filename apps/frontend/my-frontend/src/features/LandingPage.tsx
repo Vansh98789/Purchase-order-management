@@ -6,7 +6,7 @@ export default function LandingPage() {
   const navigation = useNavigate();
 
   function handleClick() {
-    navigation("/dashboard");
+    navigation("/Shop-Now");
   }
 
   return (
@@ -38,7 +38,7 @@ export default function LandingPage() {
                      hover:scale-105 hover:shadow-2xl 
                      transition-all duration-300 ease-in-out"
         >
-          Let’s Go
+          Shop Now
         </button>
       </div>
     </div>
