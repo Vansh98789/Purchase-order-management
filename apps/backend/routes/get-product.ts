@@ -6,15 +6,10 @@ import type { AuthRequest } from "../types/express";
 const router = Router();
 
 router.get("/all-product",  async (req: AuthRequest, res: Response) => {
-  const vendorId = req.userId;
 
-  if (!vendorId) {
-    return res.status(401).json({ msg: "Unauthorized" });
-  }
-
+  
   try {
     const products = await prisma.product.findMany({
-      where: { vendorId }
     });
 
     res.status(200).json({ products });
@@ -25,14 +20,21 @@ router.get("/all-product",  async (req: AuthRequest, res: Response) => {
 });
 
 router.get("/product/:id", async (req: AuthRequest, res: Response) => {
-  const productId = req.params.id;
+  const idParam = req.params.id;
 
+  if (!idParam || Array.isArray(idParam)) {
+    return res.status(400).json({ msg: "Invalid product ID" });
+  }
+
+  const productId = parseInt(idParam, 10);
+
+  if (isNaN(productId)) {
+    return res.status(400).json({ msg: "Product ID must be a number" });
+  }
 
   try {
     const product = await prisma.product.findFirst({
-      where: {
-        id: productId,
-      }
+      where: { id: productId },
     });
 
     if (!product) {
