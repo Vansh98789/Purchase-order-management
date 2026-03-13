@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 
 const links = [
-  { to: 'orders', label: 'Orders' },
-  { to: 'Products', label: 'My Products' },
-  { to: 'Create Product', label: 'Create Products' },
+  { to: 'order', label: 'Orders' },
+  { to: 'myProduct', label: 'My Products' },
+  { to: 'createProduct', label: 'Create Products' },
 
 ];
 

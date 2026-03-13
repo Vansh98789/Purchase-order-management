@@ -2,6 +2,7 @@ import { Router } from "express";
 import type {Response} from "express";
 import { prisma } from "../../../packages/common/db";
 import type { AuthRequest } from "../types/express";
+import authMiddleware from "../middleware/authMiddleware";
 
 const router = Router();
 
@@ -17,6 +18,26 @@ router.get("/all-product",  async (req: AuthRequest, res: Response) => {
     console.error(e);
     res.status(500).json({ msg: "Something went wrong" });
   }
+});
+router.get("/all-vendor-product", authMiddleware, async (req: AuthRequest, res: Response) => {
+
+  const vendorId = req.userId;
+
+  try {
+
+    const products = await prisma.product.findMany({
+      where: {
+        vendorId: vendorId
+      }
+    });
+
+    res.status(200).json({ products });
+
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ msg: "Something went wrong" });
+  }
+
 });
 
 router.get("/product/:id", async (req: AuthRequest, res: Response) => {
