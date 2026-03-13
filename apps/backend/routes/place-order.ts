@@ -58,13 +58,23 @@ router.post("/create", authMiddleware, async (req: AuthRequest, res: Response) =
 });
 
 router.get("/all", authMiddleware, async (req: AuthRequest, res: Response) => {
+
   const vendorId = req.userId;
-  if (!vendorId) return res.status(401).json({ msg: "Unauthorized" });
+
+  if (!vendorId) {
+    return res.status(401).json({ msg: "Unauthorized" });
+  }
 
   try {
+
     const orders = await prisma.order.findMany({
-      where: { vendorId },
-      include: { product: true } 
+      where: {
+        vendorId,
+        fulfilled: false   
+      },
+      include: {
+        product: true
+      }
     });
 
     res.status(200).json({ orders });
@@ -73,6 +83,7 @@ router.get("/all", authMiddleware, async (req: AuthRequest, res: Response) => {
     console.error(e);
     res.status(500).json({ msg: "Something went wrong" });
   }
+
 });
 
 
