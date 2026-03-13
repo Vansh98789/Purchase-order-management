@@ -112,7 +112,11 @@ export default function CreateOrder() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
+            className="px-5 py-2.5 text-sm font-semibold rounded-lg
+                   bg-gradient-to-r from-indigo-500 to-purple-600
+                   text-white shadow-md   w-[24rem]
+                   hover:shadow-xl hover:scale-105
+                   transition-all duration-300"
           >
             Place Order
           </button>
