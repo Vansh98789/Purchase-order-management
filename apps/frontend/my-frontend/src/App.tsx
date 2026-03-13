@@ -8,6 +8,7 @@ import ProductMain from "./features/ProductMain"
 import ProductDetail from "./features/ProductDescription"
 import Login from "./features/auth/Login"
 import Signup from "./features/auth/Signup"
+import CreateOrder from "./features/CreateOrder"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/vendor-login" element={<Login/>}/>
             <Route path="/vendor-signup" element={<Signup/>}/>
+            <Route path="/create-order" element={<CreateOrder/>}/>
 
             <Route path="/dashboard" element={<DashBoard/>}>
               <Route index element={<Navigate to="myProduct" replace />} />
