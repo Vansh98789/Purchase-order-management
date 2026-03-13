@@ -11,7 +11,7 @@ const Navbar = () => {
       </div>
 
       <NavLink
-        to="/vendor-auth"
+        to="/vendor-login"
         className="px-5 py-2.5 text-sm font-semibold rounded-lg
                    bg-gradient-to-r from-indigo-500 to-purple-600
                    text-white shadow-md
